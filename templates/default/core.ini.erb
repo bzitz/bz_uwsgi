@@ -2,5 +2,6 @@
 main_plugin =
 inherit = base
 embedded_plugins = null
-plugin_dir = /usr/local/sbin/plugins
-bin_name = /usr/local/sbin/uwsgi
+plugin_dir = <%= node['uwsgi']['plugin_dir'] %>
+bin_name = <%= node['uwsgi']['binary'] %>
+#Please print

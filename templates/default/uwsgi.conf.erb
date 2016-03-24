@@ -1,0 +1,8 @@
+#Emporer uWSGI script
+
+description "uWSGI Emperor"
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+exec uwsgi --master --emperor <%= node['uwsgi']['ini_dir'] %>
+
