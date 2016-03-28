@@ -56,6 +56,7 @@ action :create do
   bz_uwsgi_build "Build Core with Plugins" do
     action :build
     version version
+    notifies :restart, 'service[uwsgi]'
     not_if do
       node.run_state['installed_version'] == version
     end
