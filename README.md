@@ -35,10 +35,11 @@ Custom Resources
 
 
 ### Usage
-
-  bz_uwsgi_source "Example" do
-    action :build
-  end
+```ruby
+# Compile and install uwsgi
+bz_uwsgi_source "Example" do
+  action :build
+end
 
 
 
