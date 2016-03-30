@@ -1,7 +1,7 @@
 property :version, default: node['uwsgi']['version']
 property :checksum, default: node['uwsgi']['checksum']
 
-action :create do
+action :build do
   include_recipe 'apt'
   include_recipe 'build-essential::default'
 
