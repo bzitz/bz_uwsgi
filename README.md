@@ -26,17 +26,21 @@ Custom Resources
 -   :build - builds uwsgi core and plugins for python2.7 and python 3.4
 
 ### Properties
-Attributes can be defined in the attributes file of the wrapper cookbook or when 
-calling the custom resource. See usage for examples.  
 
--   :version   - defaults to node['uwsgi']['version']
--   :checksum  - defaults to node['uwsgi']['checksum']
--   :uwsgihome - defaults to node['uwsgi']['home']
--   :ini_dir   - defaults to node['uwsgi']['ini_dir']
+-   :version   - defaults to "2.0.12"
+-   :checksum  - defaults to "306b51db97648d6d23bb7eacd76e5a413434575f220dac1de231c8c26d33e409"
+                 (must be defined if version is defined)
+-   :uwsgihome - defaults to "/usr/local/sbin"
+-   :ini_dir   - defaults to "/usr/local/sbin/uwsgi_ini"
 
 
-Default Attributes
-------------------
+### Usage
+
+  bz_uwsgi_source "Example" do
+    action :build
+  end
+
+
 
 
 

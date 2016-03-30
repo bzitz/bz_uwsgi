@@ -6,6 +6,5 @@
 #
 
 bz_uwsgi_source "test" do
-  action :create
-  version "2.0.12"
+  action :build
 end

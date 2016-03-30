@@ -55,6 +55,7 @@ action :build do
   end
 
   template "/tmp/uwsgi-#{version}/buildconf/core.ini" do
+    cookbook "bz_uwsgi"
     source "core.ini.erb"
   end
 
@@ -68,7 +69,11 @@ action :build do
   end
 
   template "/etc/init/uwsgi.conf" do
+    cookbook "bz_uwsgi"
     source "uwsgi.conf.erb"
+    variables(
+      :ini_dir => new_resource.ini_dir,
+    )
   end
 
   service "uwsgi" do

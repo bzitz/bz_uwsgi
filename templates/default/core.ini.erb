@@ -2,5 +2,5 @@
 main_plugin =
 inherit = base
 embedded_plugins = null
-plugin_dir = <%= node['uwsgi']['plugin_dir'] %>
-bin_name = <%= node['uwsgi']['binary'] %>
+plugin_dir = <%= node.run_state['plugin_dir'] %>
+bin_name = <%= node.run_state['uwsgi_bin'] %>
