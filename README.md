@@ -23,14 +23,22 @@ Custom Resources
   version than the version specified when the resource is called.  
 
 ### Actions
--   :build  :  builds uwsgi core and plugins for python2.7 and python 3.4
+-   :build - builds uwsgi core and plugins for python2.7 and python 3.4
 
 ### Properties
 Attributes can be defined in the attributes file of the wrapper cookbook or when 
 calling the custom resource. See usage for examples.  
 
--   :version  : defaults to node['uwsgi']['version']
--   :checksum : defaults to node['uwsgi']['checksum']
+-   :version   - defaults to node['uwsgi']['version']
+-   :checksum  - defaults to node['uwsgi']['checksum']
+-   :uwsgihome - defaults to node['uwsgi']['home']
+-   :ini_dir   - defaults to node['uwsgi']['ini_dir']
+
+
+Default Attributes
+------------------
+
+
 
 
 

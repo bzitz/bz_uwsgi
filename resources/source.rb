@@ -1,9 +1,14 @@
-property :version, default: node['uwsgi']['version']
-property :checksum, default: node['uwsgi']['checksum']
+property :version, default: "2.0.12"
+property :checksum, default: "306b51db97648d6d23bb7eacd76e5a413434575f220dac1de231c8c26d33e409"
+property :uwsgihome, default: "/usr/local/sbin"
+property :ini_dir, default: "/usr/local/sbin/uwsgi_ini"
 
 action :build do
   include_recipe 'apt'
   include_recipe 'build-essential::default'
+
+  node.run_state['plugin_dir'] = "#{uwsgihome}/plugins"
+  node.run_state['uwsgi_bin'] = "#{uwsgihome}/uwsgi"
 
   service 'uwsgi' do
     provider Chef::Provider::Service::Upstart
@@ -33,15 +38,15 @@ action :build do
     not_if { ::File.directory?("/tmp/uwsgi-#{version}") }
   end
   
-  directory node['uwsgi']['plugin_dir'] do
+  directory node.run_state['plugin_dir'] do
     action :create
   end
 
-  directory node['uwsgi']['ini_dir'] do
+  directory ini_dir do
     action :create
   end
   
-  if ::File.exist?("#{node['uwsgi']['binary']}")  
+  if ::File.exist?("#{node.run_state['uwsgi_bin']}")  
     bz_uwsgi_inventory "get uwsgi version" do
       action :collect
     end
