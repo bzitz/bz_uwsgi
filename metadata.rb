@@ -1,9 +1,9 @@
 name             'bz_uwsgi'
-maintainer       'The Authors'
-maintainer_email 'you@example.com'
+maintainer       'Brandon Zitzman'
+maintainer_email 'brandon.zitzman1@gmail.com'
 license          'all_rights'
-description      'Installs/Configures bz_uwsgi'
-long_description 'Installs/Configures bz_uwsgi'
+description      'Custom Resource for installing uwsgi core'
+long_description IO.read(File.join.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
 
 depends 'apt'
